@@ -74,7 +74,7 @@ def process_start(s_sock):
 
             sendtoCli = (str(option)+ '.... RM'+ str(price)+ ' ['+ str(quantity) + ']: RM' + str(ans))
             print(sendtoCli)
-            print ('ORDER RECEIVED!!')
+            print ('ORDER RECEIVED!! from client :' + str(s_addr))
             #break
         except:
             print ('Client Disconnected')
