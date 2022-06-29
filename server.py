@@ -76,3 +76,35 @@ def process_start(s_sock):
             print(sendtoCli)
             print ('ORDER RECEIVED!!')
             #break
+        except:
+            print ('Client Disconnected')
+            sendtoCli = ('Client Disconnected')
+            break
+        if not data:
+            break
+
+        s_sock.send(str.encode(str(sendtoCli)))
+    s_sock.close()
+
+if __name__ == '__main__':
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.bind(("",8989))
+	print("Receiving...")
+	s.listen(3)
+	try:
+		while True:
+			try:
+				s_sock, s_addr = s.accept()
+				print('Client from : ' + str(s_addr))
+				p = Process(target=process_start, args=(s_sock,))
+				p.start()
+
+			except socket.error:
+				print('got a socket error')
+
+	except Exception as e:
+		print("an exception occurred!")
+		print(e)
+		sys.exit(1)
+	finally:
+		s.close()
