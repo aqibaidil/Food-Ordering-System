@@ -8,9 +8,9 @@ import math
 from multiprocessing import Process
 
 def process_start(s_sock):
-
-	s_sock.send(str.encode('\n\t\t\t\t*#*#*WEST-TURN CAFE*#*#*\t\t\t'))
-    	while True:
+	
+    s_sock.send(str.encode('\n\t\t\t\t*#*#*WEST-TURN CAFE*#*#*\t\t\t'))
+    while True:
         data = s_sock.recv(2048)
         data = data.decode("utf-8")
 
