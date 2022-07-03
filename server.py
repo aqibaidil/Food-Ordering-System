@@ -8,9 +8,9 @@ import math
 from multiprocessing import Process
 
 def process_start(s_sock):
-
-	s_sock.send(str.encode('\n\t\t\t\t*#*#*WEST-TURN CAFE*#*#*\t\t\t'))
-    	while True:
+	
+    s_sock.send(str.encode('\n\t\t\t\t*#*#*WEST-TURN CAFE*#*#*\t\t\t'))
+    while True:
         data = s_sock.recv(2048)
         data = data.decode("utf-8")
 
@@ -74,7 +74,7 @@ def process_start(s_sock):
 
             sendtoCli = (str(option)+ '.... RM'+ str(price)+ ' ['+ str(quantity) + ']: RM' + str(ans))
             print(sendtoCli)
-            print ('ORDER RECEIVED!!')
+            print ('ORDER RECEIVED!! from client :' + str(s_addr))
             #break
         except:
             print ('Client Disconnected')
@@ -88,7 +88,7 @@ def process_start(s_sock):
 
 if __name__ == '__main__':
 	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	s.bind(("",8989))
+	s.bind(("",8888))
 	print("Receiving...")
 	s.listen(3)
 	try:
