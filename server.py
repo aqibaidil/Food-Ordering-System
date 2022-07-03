@@ -88,7 +88,7 @@ def process_start(s_sock):
 
 if __name__ == '__main__':
 	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	s.bind(("",8989))
+	s.bind(("",8888))
 	print("Receiving...")
 	s.listen(3)
 	try:
