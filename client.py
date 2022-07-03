@@ -4,7 +4,7 @@ import sys
 
 cSocket = socket.socket()
 host = '192.168.249.4'
-port = 8989
+port = 8888
 
 print('Waiting For Connection')
 try:
